@@ -5,11 +5,10 @@
 #include <stdio.h>
 
 void ListMake(struct int_list* list) {
-     int i;
+    int i;
     /* assuming that list is a valid pointer */
     assert(list != NULL);
-   
-   
+
     /* Nothing much to be done here for this particular
      * implementation of a list. Merely setting the
      * ''size'' member of the struct int_list object to 0 would
@@ -21,18 +20,16 @@ void ListMake(struct int_list* list) {
      * the list can be manipulated.
      *
      */
-    i =0;
-  
-    list->size =i;
+    i = 0;
+
+    list->size = i;
 }
 
 BOOLEAN ListInsert(struct int_list* list, int num) {
     /* any required local vars go here */
     int i;
-    int anInt;
 
     assert(list != NULL);
-    anInt = 0;
     /* if the list is already full then indicate
      * insertion failure with a return value
      *
@@ -55,12 +52,12 @@ BOOLEAN ListInsert(struct int_list* list, int num) {
      * Finally return a value indicating SUCCESS
      *
      */
-    while (i > 0 && anInt < num) {
+    while (i > 0 && list->list[i] > num) {
         list->list[i] = list->list[i - 1];
         i--;
     }
 
-    list->list[i] = anInt;
+    list->list[i] = num;
     list->size++;
     /* dummy return value until you implement the function - it won't
      * generate a warning that way
@@ -83,13 +80,11 @@ void ListDisplay(struct int_list* pil) {
 void ListFree(struct int_list* pil) {
     int i;
     assert(pil != NULL);
-    
-    
+
     /* Nothing much to be done here for this particular
      * implementation of a list. Merely setting the
      * size attribute to 0 would suffice
      */
-    i=0;
-    pil->size =i;
-
+    i = 0;
+    pil->size = i;
 }
